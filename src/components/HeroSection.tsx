@@ -4,6 +4,7 @@ import { Html, PerspectiveCamera, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,6 +98,7 @@ const Scene = () => {
     tl.to(groupRef.current!.position, { z: -5, ease: "power1.inOut" }, 0);
 
     return () => {
+      tl.revert();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [camera]);
@@ -179,41 +181,43 @@ const Scene = () => {
 
 const HeroSection = () => {
   return (
-    <div id="hero-container" className="relative h-screen w-full bg-brand-primary overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-secondary/30 rounded-full blur-[120px] pointer-events-none"></div>
-      
-      {/* 3D Canvas */}
-      <div className="absolute inset-0 z-0">
-        <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 12]} fov={45} />
-          <Scene />
-        </Canvas>
-      </div>
+    <div className="w-full">
+      <div id="hero-container" className="relative h-screen w-full bg-brand-primary overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-secondary/30 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        {/* 3D Canvas */}
+        <div className="absolute inset-0 z-0">
+          <Canvas>
+            <PerspectiveCamera makeDefault position={[0, 0, 12]} fov={45} />
+            <Scene />
+          </Canvas>
+        </div>
 
-      {/* Hero Content Overlay */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center pointer-events-none text-center">
-        <div className="mt-[-20vh]">
-          <h2 className="text-brand-accent uppercase tracking-widest text-sm font-bold mb-6">
-            INTVAR ERP • Complete School Management Platform
-          </h2>
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight max-w-4xl">
-            Run Your Entire School From <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-secondary">One Smart ERP</span>
-          </h1>
-          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
-            From student management and teacher operations to attendance, examinations, report cards, timetable, fees and analytics — INTVAR ERP brings your entire school onto one connected platform.
-          </p>
-          <div className="flex justify-center space-x-4 pointer-events-auto">
-            <button className="bg-white text-brand-primary hover:bg-brand-accent hover:text-brand-primary px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-brand-accent/20">
-              Request a Demo
-            </button>
-            <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-lg transition-all backdrop-blur-sm">
-              Explore Features
-            </button>
+        {/* Hero Content Overlay */}
+        <div className="relative z-10 h-full max-w-7xl mx-auto px-6 flex flex-col items-center justify-center pointer-events-none text-center">
+          <div className="mt-[-20vh]">
+            <h2 className="text-brand-accent uppercase tracking-widest text-sm font-bold mb-6">
+              INTVAR ERP • Complete School Management Platform
+            </h2>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight max-w-4xl">
+              Run Your Entire School From <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-brand-secondary">One Smart ERP</span>
+            </h1>
+            <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
+              From student management and teacher operations to attendance, examinations, report cards, timetable, fees and analytics — INTVAR ERP brings your entire school onto one connected platform.
+            </p>
+            <div className="flex justify-center space-x-4 pointer-events-auto">
+              <button className="bg-white text-brand-primary hover:bg-brand-accent hover:text-brand-primary px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl hover:shadow-brand-accent/20">
+                Request a Demo
+              </button>
+              <Link to="/features" className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-lg transition-all backdrop-blur-sm">
+                Explore Features
+              </Link>
+            </div>
+            <p className="text-sm text-white/50 mt-6 tracking-wide">
+              Built for modern schools • Secure • Scalable • Easy to use
+            </p>
           </div>
-          <p className="text-sm text-white/50 mt-6 tracking-wide">
-            Built for modern schools • Secure • Scalable • Easy to use
-          </p>
         </div>
       </div>
     </div>

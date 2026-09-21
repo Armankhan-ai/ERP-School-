@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -28,7 +29,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-6">Product</h4>
           <ul className="space-y-3">
-            <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Features</a></li>
+            <li><Link to="/features" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Features</Link></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Modules</a></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Pricing</a></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Updates</a></li>
@@ -38,7 +39,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-6">Company</h4>
           <ul className="space-y-3">
-            <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">About Us</a></li>
+            <li><Link to="/about" className="text-white/60 hover:text-brand-accent text-sm transition-colors">About Us</Link></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Careers</a></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Contact</a></li>
             <li><a href="#" className="text-white/60 hover:text-brand-accent text-sm transition-colors">Blog</a></li>
