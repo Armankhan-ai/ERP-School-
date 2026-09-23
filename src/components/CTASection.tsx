@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
@@ -13,12 +14,12 @@ const CTASection = () => {
           Bring academics, administration and school operations together with INTVAR ERP.
         </p>
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <button className="bg-brand-accent text-brand-primary hover:bg-white hover:text-brand-primary px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-brand-accent/30 w-full sm:w-auto">
+          <Link to="/contact" className="bg-brand-accent text-brand-primary hover:bg-white hover:text-brand-primary px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-brand-accent/30 w-full sm:w-auto inline-block text-center">
             Request a Demo
-          </button>
-          <button className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto">
+          </Link>
+          <Link to="/contact" className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-full font-bold text-lg transition-all w-full sm:w-auto inline-block text-center">
             Talk to Our Team
-          </button>
+          </Link>
         </div>
       </div>
     </section>

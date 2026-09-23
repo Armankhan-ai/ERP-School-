@@ -108,7 +108,7 @@ P.analytics = `<div class="pg accent"><div class="ph"><h3>Analytics</h3><span cl
 P.cta = `<div class="pg dark">${brand}
   <h2 class="serif" style="color:#fff">Ready to modernize your school?</h2>
   <p class="lede">See INTVAR ERP with your own classes, fees and timetable in a 30 minute walkthrough.</p>
-  <div class="btns"><a class="b w" href="/demo">Request a demo</a><a class="b g" href="/contact">Talk to our team</a></div></div>`;
+  <div class="btns"><a class="b w" href="/contact">Request a demo</a><a class="b g" href="/contact">Talk to our team</a></div></div>`;
 
 P.modules = `<div class="pg chalk">${brand}
   <h2 class="serif" style="font-size:7.6cqw">Nine modules, one login</h2>
@@ -160,15 +160,16 @@ const HeroSection = () => {
     const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
     let W = 0, A = 24, introScale = 0.58, introShiftVh = 0.25, vw = window.innerWidth, vh = window.innerHeight;
+    let isMobile = false;
     
     function measure(){
       vw = window.innerWidth;
       vh = window.innerHeight;
       W = leaves[0].offsetWidth;
-      const m = vw < 760;
-      A = m ? 18 : 24;
-      introScale = m ? 0.8 : 0.58;
-      introShiftVh = m ? 0.3 : 0.25;
+      isMobile = vw < 760;
+      A = isMobile ? 14 : 24;
+      introScale = isMobile ? 0.8 : 0.58;
+      introShiftVh = isMobile ? 0.3 : 0.25;
     }
 
     function targets(){
@@ -204,7 +205,7 @@ const HeroSection = () => {
         const depth = sR + sL;
         const lift = Math.sin(Math.PI * f_val);
         const phi = -A - f_val * (180 - 2 * A);
-        const dx = (sR - sL) * W * 0.15;
+        const dx = (sR - sL) * W * (isMobile ? 0.01 : 0.15);
         const dz = -depth * W * 0.2 + lift * W * 0.16;
         
         const leaf = leaves[i];
@@ -296,7 +297,7 @@ const HeroSection = () => {
             <h1>Run your entire school from one smart ERP</h1>
             <p className="sub">Students, teachers, attendance, exams, report cards, timetable, fees and analytics — connected on one platform, so nothing is typed twice.</p>
             <div className="cta">
-              <Link to="/demo" className="hero-btn white">Request a demo</Link>
+              <Link to="/contact" className="hero-btn white">Request a demo</Link>
               <Link to="/features" className="hero-btn glass">Explore features</Link>
             </div>
           </div>

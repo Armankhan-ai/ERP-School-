@@ -55,9 +55,9 @@ const Navbar = () => {
           <button className="text-sm font-medium text-white/90 hover:text-white transition-colors">
             Login
           </button>
-          <button className="bg-white text-brand-primary hover:bg-brand-accent hover:text-brand-primary px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-md">
+          <Link to="/contact" className="bg-white text-brand-primary hover:bg-brand-accent hover:text-brand-primary px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-md">
             Request Demo
-          </button>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -84,9 +84,9 @@ const Navbar = () => {
           ))}
           <div className="border-t border-white/10 pt-4 flex flex-col space-y-3">
             <button className="w-full text-left font-medium text-white/90">Login</button>
-            <button className="w-full bg-white text-brand-primary px-4 py-2 rounded font-semibold text-center">
+            <Link to="/contact" className="w-full bg-white text-brand-primary px-4 py-2 rounded font-semibold text-center" onClick={() => setMobileMenuOpen(false)}>
               Request Demo
-            </button>
+            </Link>
           </div>
         </div>
       )}

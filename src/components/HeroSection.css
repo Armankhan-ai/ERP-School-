@@ -143,7 +143,10 @@
 .hero-btn.glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28);color:#fff}
 
 @media(max-width:760px){
-  .hero-track {--w:43vw}
+  .hero-track {
+    --w: 48vw;
+    --h: 58svh;
+  }
   .dots{flex-direction:row;top:auto;right:auto;left:50%;bottom:calc(13vh + env(safe-area-inset-bottom,0px));transform:translateX(-50%)}
   .dots button::after{width:8px;height:8px}
   .dots button.on::after{width:22px;height:8px;border-radius:6px}
